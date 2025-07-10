@@ -36,7 +36,7 @@ def predict():
         input_data = np.array(landmarks).reshape(1, -1)
 
         # Predict
-        prediction = model.predict(input_data)
+        prediction = model.predict([np.asarray(landmarks)])
         predicted_label = int(prediction[0])
         predicted_character = label_dict.get(predicted_label, "Unknown")
 
