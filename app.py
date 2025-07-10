@@ -8,7 +8,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Load the model
-model_dict = pickle.load(open('./model.p', 'rb'))
+model_dict = pickle.load(open('./model.pkl', 'rb'))
 model = model_dict['model']
 
 # Label mapping
@@ -23,8 +23,8 @@ def hello():
 def predict():
     try:
         data = request.get_json()
-        print("hello")
-        print(data)
+        # print("hello")
+        # print(data)
         # Expecting 'landmarks' to be a flat list: [x0, y0, x1, y1, ..., x20, y20]
         landmarks = data.get('landmarks', [])
         
